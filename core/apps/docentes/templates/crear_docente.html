@@ -1,14 +1,46 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Crear Docente{% endblock %}
 
 {% block content %}
-  <div class="container">
-    <h2>Crear Nuevo Docente</h2>
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}  <!-- Muestra el formulario -->
-      <button type="submit" class="btn btn-success">Crear Docente</button>
-    </form>
+<div class="custom-modal-overlay">
+  <div class="custom-modal-window">
+    <button class="custom-close-btn" onclick="window.location.href='{% url 'docente:listar_docentes' %}'">&times;</button>
+    <h2 class="custom-modal-title">
+      <i class="fa fa-user-plus me-2"></i> Crear Nuevo Docente
+    </h2>
+    <div class="custom-modal-content">
+      <div class="custom-form-column">
+        <form method="POST" enctype="multipart/form-data" id="customDocenteForm">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="text-center mt-3">
+            <button type="submit" class="custom-btn-save">
+              <i class="fa fa-save me-1"></i> Guardar Docente
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="custom-preview-column">
+        <div class="custom-image-preview-container">
+          <img id="customImagePreview" src="{% static 'images/placeholder.png' %}" alt="Previsualización" />
+        </div>
+       
+      </div>
+    </div>
   </div>
+</div>
+<script>
+document.getElementById('id_imagen').addEventListener('change', function(event) {
+  const [file] = event.target.files;
+  if (file) {
+    const preview = document.getElementById('customImagePreview');
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = 'block';
+  }
+});
+</script>
 {% endblock %}
