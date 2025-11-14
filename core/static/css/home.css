@@ -1,0 +1,100 @@
+/* Estilos generales de la página */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Color de la UNEMI */
+.unemi-blue {
+  background-color: #002c5f; /* Azul oscuro UNEMI */
+  color: #fff;
+}
+
+.unemi-yellow {
+  color: #ffcc00; /* Amarillo UNEMI */
+}
+
+/* Estilos para las tarjetas de estudiantes */
+.student-card {
+  border-radius: 10px; /* Redondear las tarjetas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student-card:hover {
+  transform: scale(1.05); /* Efecto de hover: agranda la tarjeta */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.student-image {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+/* Card Body */
+.card-body {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card-body h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #002c5f;
+  margin-bottom: 15px;
+}
+
+.card-body p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.card-body a {
+  background-color: #ffcc00; /* Amarillo UNEMI */
+  color: #002c5f; /* Azul oscuro UNEMI */
+  border-radius: 5px;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.card-body a:hover {
+  background-color: #e6b800;
+  color: #fff;
+}
+
+/* Sección de Información General */
+.card-header {
+  background-color: #f7f7f7;
+  border-bottom: 2px solid #ffcc00; /* Límite amarillo */
+  padding: 20px 0;
+}
+
+.card-header i {
+  color: #ffcc00; /* Amarillo UNEMI */
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 767px) {
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .card-body h5 {
+    font-size: 1rem;
+  }
+
+  .card-body p {
+    font-size: 0.9rem;
+  }
+
+  .card-body a {
+    padding: 10px 20px;
+  }
+}

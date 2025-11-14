@@ -1,49 +1,105 @@
 {% extends 'base.html' %}
-{% load static %}  <!-- Aquí cargamos la etiqueta static -->
+{% load static %}
 
 {% block title %}Bienvenido al Sitio de Oferta de Cursos{% endblock %}
 
 {% block content %}
   <!-- Sección de Estudiantes -->
-  <div class="container">
-    <h2 class="text-center mb-4">Estudiantes</h2>
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Conoce a Nuestros Estudiantes</h2>
     <div class="row">
       <!-- Estudiante 1 -->
-      <div class="col-md-3">
-        <div class="card">
-          <img src="{% static 'img/estudiante1.jpg' %}" class="card-img-top" alt="Imagen estudiante">
+      <div class="col-md-3 mb-4">
+        <div class="card student-card">
+          <img src="{% static 'images/gjbc.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
           <div class="card-body">
-            <h5 class="card-title">Nombre Estudiante</h5>
-            <p class="card-text">Nivel: 1</p>
+            <h5 class="card-title">Gregory Jacinto Barco Cevallos</h5>
+            <p class="card-text">Nivel: 6</p>
           </div>
         </div>
       </div>
-      <!-- Repetir para otros estudiantes -->
-    </div>
 
-    <!-- Sección de Información General -->
-    <h2 class="text-center mb-4">Información General</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-          <i class="fa fa-user"></i>
+      <!-- Estudiante 2 -->
+      <div class="col-md-3 mb-4">
+        <div class="card student-card">
+          <img src="{% static 'images/jgmn.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
           <div class="card-body">
-            <h5 class="card-title">Docentes</h5>
-            <p class="card-text">Ubicar una descripción general sobre docentes y su experiencia.</p>
-            <a href="{% url 'docente:listar_docentes' %}" class="btn btn-primary">Ver docentes</a>
+            <h5 class="card-title">Jazmín Guadalupe Moreta Nugra</h5>
+            <p class="card-text">Nivel: 6</p>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card">
-          <i class="fa fa-book-open"></i>
+
+      <!-- Estudiante 3 -->
+      <div class="col-md-3 mb-4">
+        <div class="card student-card">
+          <img src="{% static 'images/njst.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
           <div class="card-body">
-            <h5 class="card-title">Cursos</h5>
-            <p class="card-text">Ubicar una descripción general sobre cursos disponibles.</p>
-            <a href="{% url 'materia:listar_materias' %}" class="btn btn-primary">Ver cursos</a>
+            <h5 class="card-title">Narcisa de Jesús Suquinagua Toalongo</h5>
+            <p class="card-text">Nivel: 6</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Estudiante 4 -->
+      <div class="col-md-3 mb-4">
+        <div class="card student-card">
+          <img src="{% static 'images/jmvb.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
+          <div class="card-body">
+            <h5 class="card-title">Jostin Miguel Visaira Brito</h5>
+            <p class="card-text">Nivel: 6</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estudiante 5 -->
+      <div class="col-md-3 mb-4">
+        <div class="card student-card">
+          <img src="{% static 'images/mseb.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
+          <div class="card-body">
+            <h5 class="card-title">Michael Stick Espinoza Baque</h5>
+            <p class="card-text">Nivel: 5</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <!-- Sección de Información General -->
+  <h2 class="text-center mb-4">¡Descubre Más Sobre Nosotros!</h2>
+<div class="row">
+  <!-- Sección de Docentes -->
+  <div class="col-md-6 mb-4">
+    <div class="card">
+      <div class="card-header text-center">
+        <i class="fa fa-user fa-3x"></i>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text-center">Conoce a Nuestros Docentes</h5>
+        <p class="card-text text-center">¡Estudia con los mejores! Nuestros docentes son expertos en sus áreas, listos para guiarte hacia el éxito.</p>
+        <div class="text-center">
+          <a href="{% url 'docente:listar_docentes' %}" class="btn btn-primary btn-lg">Ver Docentes</a>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Sección de Cursos -->
+  <div class="col-md-6 mb-4">
+    <div class="card">
+      <div class="card-header text-center">
+        <i class="fa fa-book-open fa-3x"></i>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text-center">Explora Nuestros Cursos</h5>
+        <p class="card-text text-center">¡Amplía tus conocimientos con nosotros! Descubre nuestros cursos de alta calidad y encuentra el que más te apasione.</p>
+        <div class="text-center">
+          <a href="{% url 'materia:listar_materias' %}" class="btn btn-primary btn-lg">Ver Cursos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}

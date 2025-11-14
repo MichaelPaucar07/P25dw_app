@@ -1,0 +1,89 @@
+/* Estilos generales para el pie de página */
+.footer-cube {
+    background-color: #333; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: auto; /* Asegura que el pie de página siempre esté al final */
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.footer-text {
+    font-size: 0.875rem;
+    color: #ccc;
+}
+
+.footer-icon {
+    font-size: 1.8rem; /* Tamaño de los iconos */
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-icon:hover {
+    color: #007bff; /* Color de los iconos al pasar el mouse */
+}
+
+.d-flex a {
+    margin: 0 10px; /* Espaciado entre iconos */
+}
+
+/* Estilo del mapa */
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.25%; /* Proporción de la ventana del mapa (16:9) */
+    height: 0;
+    max-width: 100%;
+    background: transparent;
+    border: none;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo del separador */
+.footer-divider {
+    border-color: #444; /* Color del separador */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Enlaces dentro del pie de página */
+.footer-text a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-text a:hover {
+    color: #007bff; /* Color al pasar el mouse sobre los enlaces */
+}
+
+/* Estilos para asegurar que el pie de página siempre esté al final */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 767px) {
+    .footer-icon {
+        font-size: 1.5rem; /* Ajuste para pantallas pequeñas */
+    }
+    .footer-title {
+        font-size: 1rem;
+    }
+    .footer-text {
+        font-size: 0.75rem;
+    }
+}
