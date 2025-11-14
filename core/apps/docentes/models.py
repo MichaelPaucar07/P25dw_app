@@ -8,6 +8,6 @@ class Docente(models.Model):
     tipo_sangre = models.CharField(max_length=5)
     direccion = models.TextField()
     imagen = models.ImageField(upload_to='docentes/')
-    
+
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
