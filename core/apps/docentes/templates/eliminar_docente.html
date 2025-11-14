@@ -1,14 +1,31 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Eliminar Docente{% endblock %}
 
 {% block content %}
-  <div class="container">
-    <h2>¿Estás seguro de eliminar al docente {{ docente.nombre }} {{ docente.apellido }}?</h2>
-    <form method="POST">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-danger">Eliminar</button>
-      <a href="{% url 'docente:listar_docentes' %}" class="btn btn-secondary">Cancelar</a>
-    </form>
+<div class="custom-modal-overlay">
+  <div class="custom-modal-window">
+    <button class="custom-close-btn" onclick="window.location.href='{% url 'docente:listar_docentes' %}'">&times;</button>
+    
+    <div style="text-align:center; margin-bottom:20px;">
+      <i class="fa fa-trash" style="font-size:60px; color:#dc3545;"></i>
+    </div>
+
+    <h2 class="custom-modal-title">
+      ¿Estás seguro de eliminar al docente <strong>{{ docente.nombre }} {{ docente.apellido }}</strong>?
+    </h2>
+
+    <div style="text-align:center; margin-top:30px;">
+      <form method="POST" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger" style="padding:12px 20px; font-size:16px; border-radius:8px;">
+          <i class="fa fa-trash me-1"></i> Eliminar
+        </button>
+      </form>
+      <a href="{% url 'docente:listar_docentes' %}" class="btn btn-secondary" style="padding:12px 20px; font-size:16px; border-radius:8px; margin-left:10px;">
+        Cancelar
+      </a>
+    </div>
   </div>
+</div>
 {% endblock %}
