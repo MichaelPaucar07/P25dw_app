@@ -23,8 +23,6 @@ def crear_docente(request):
 
     return render(request, "crear_docente.html", {"form": form})
 
-
-
 # Vista para listar todos los docentes
 def listar_docentes(request):
     # Recupera todos los docentes de la base de datos
@@ -35,29 +33,19 @@ def listar_docentes(request):
 
 
 # Vista para actualizar un docente
+# Vista para actualizar un docente
 def actualizar_docente(request, pk):
-    # Obtiene el docente con el ID proporcionado
     docente = get_object_or_404(Docente, pk=pk)
 
-    # Si el método de la solicitud es POST, significa que se envió el formulario con datos
     if request.method == "POST":
-        form = DocenteForm(request.POST, instance=docente)
-
-        # Validación del formulario
+        form = DocenteForm(request.POST, request.FILES, instance=docente)
         if form.is_valid():
-            # Guarda los cambios en el docente
             form.save()
-            # Redirige a la vista de lista de docentes
-            return redirect(
-                "docente:listar_docentes"
-            )  # Reemplazar con el nombre correcto de la vista
+            return redirect("docente:listar_docentes")
     else:
-        # Si la solicitud es GET, se rellena el formulario con los datos actuales del docente
         form = DocenteForm(instance=docente)
 
-    # Renderiza la plantilla para actualizar un docente, pasando el formulario al contexto
-    return render(request, "actualizar_docente.html", {"form": form})
-
+    return render(request, "actualizar_docente.html", {"form": form, "docente": docente})
 
 # Vista para eliminar un docente
 def eliminar_docente(request, pk):

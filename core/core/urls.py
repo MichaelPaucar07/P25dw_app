@@ -25,7 +25,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('docentes/', include('apps.docentes.urls')),
     path('materias/', include('apps.materias.urls'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
