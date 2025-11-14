@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Eliminar Materia{% endblock %}
+
+{% block content %}
+<div class="custom-modal-overlay">
+  <div class="custom-modal-window">
+    <button class="custom-close-btn" onclick="window.location.href='{% url 'materia:listar_materias' %}'">&times;</button>
+    <h2 class="custom-modal-title">
+      <i class="fa fa-trash-alt me-2"></i> Eliminar Materia
+    </h2>
+    <div class="custom-modal-content" style="flex-direction: column; text-align: center;">
+      <p style="font-size: 18px; margin-bottom: 20px;">
+        ¿Estás seguro de que deseas eliminar la materia <strong>{{ materia.nombre }}</strong>?
+      </p>
+      <form method="POST" style="display: flex; justify-content: center; gap: 15px;">
+        {% csrf_token %}
+        <button type="submit" class="custom-btn-delete">
+          <i class="fa fa-trash me-1"></i> Eliminar
+        </button>
+        <a href="{% url 'materia:listar_materias' %}" class="custom-btn-cancel">
+          <i class="fa fa-times me-1"></i> Cancelar
+        </a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

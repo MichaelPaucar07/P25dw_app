@@ -14,33 +14,30 @@ def crear_materia(request):
     else:
         form = MateriasForm()  # Si es GET, muestra un formulario vacío
 
-    return render(request, "materia/crear_materia.html", {"form": form})
+    return render(request, "crear_materia.html", {"form": form})
 
 
 # Vista para listar todas las materias
 def listar_materias(request):
     materias = Materias.objects.all()  # Recupera todas las materias de la base de datos
-    return render(request, "materia/listar_materias.html", {"materias": materias})
+    return render(request, "listar_materias.html", {"materias": materias})
 
 
 # Vista para actualizar una materia existente
 def actualizar_materia(request, pk):
-    materia = get_object_or_404(
-        Materias, pk=pk
-    )  # Obtiene la materia con el ID proporcionado
+    materia = get_object_or_404(Materias, pk=pk)
     if request.method == "POST":
-        form = MateriasForm(request.POST, instance=materia)
+        form = MateriasForm(request.POST, request.FILES, instance=materia)  # <-- Agregar request.FILES
         if form.is_valid():
             form.save()
-            return redirect(
-                "materia:listar_materias"
-            )  # Redirige a la lista de materias después de guardar los cambios
+            return redirect("materia:listar_materias")
     else:
-        form = MateriasForm(
-            instance=materia
-        )  # Si es GET, rellena el formulario con los datos actuales de la materia
+        form = MateriasForm(instance=materia)
 
-    return render(request, "materia/actualizar_materia.html", {"form": form})
+    return render(request, "actualizar_materia.html", {
+        "form": form,
+        "materia": materia  # <-- Pasamos el objeto
+    })
 
 
 # Vista para eliminar una materia
@@ -54,4 +51,4 @@ def eliminar_materia(request, pk):
             "materia:listar_materias"
         )  # Redirige a la lista de materias después de eliminar
 
-    return render(request, "materia/eliminar_materia.html", {"materia": materia})
+    return render(request, "eliminar_materia.html", {"materia": materia})

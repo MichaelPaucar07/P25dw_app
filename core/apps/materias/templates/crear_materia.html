@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Crear Materia{% endblock %}
+
+{% block content %}
+<div class="custom-modal-overlay">
+  <div class="custom-modal-window">
+    <button class="custom-close-btn" onclick="window.location.href='{% url 'materia:listar_materias' %}'">&times;</button>
+    <h2 class="custom-modal-title">
+      <i class="fa fa-book me-2"></i> Crear Nueva Materia
+    </h2>
+    <div class="custom-modal-content">
+      <!-- Columna del formulario -->
+      <div class="custom-form-column">
+        <form method="POST" enctype="multipart/form-data" id="customMateriaForm">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="text-center mt-3">
+            <button type="submit" class="custom-btn-save">
+              <i class="fa fa-save me-1"></i> Guardar Materia
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Columna de previsualización -->
+      <div class="custom-preview-column">
+        <div class="custom-image-preview-container">
+          <img id="customImagePreview" src="{% static 'images/placeholder2.png' %}" alt="Previsualización" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('id_imagen').addEventListener('change', function(event) {
+  const [file] = event.target.files;
+  if (file) {
+    const preview = document.getElementById('customImagePreview');
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = 'block';
+  }
+});
+</script>
+{% endblock %}
