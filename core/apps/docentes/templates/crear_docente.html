@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Crear Docente{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h2>Crear Nuevo Docente</h2>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}  <!-- Muestra el formulario -->
+      <button type="submit" class="btn btn-success">Crear Docente</button>
+    </form>
+  </div>
+{% endblock %}
