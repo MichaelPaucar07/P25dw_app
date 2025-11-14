@@ -5,12 +5,12 @@ body {
 
 /* Color de la UNEMI */
 .unemi-blue {
-  background-color: #002c5f; /* Azul oscuro UNEMI */
+  background-color: #0067dd; /* Azul oscuro UNEMI */
   color: #fff;
 }
 
 .unemi-yellow {
-  color: #ffcc00; /* Amarillo UNEMI */
+  color: #ffa733; /* Amarillo UNEMI */
 }
 
 /* Estilos para las tarjetas de estudiantes */
@@ -54,7 +54,7 @@ body {
 }
 
 .card-body a {
-  background-color: #ffcc00; /* Amarillo UNEMI */
+  background-color: #ffa733; /* Amarillo UNEMI */
   color: #002c5f; /* Azul oscuro UNEMI */
   border-radius: 5px;
   padding: 12px 30px;
@@ -64,19 +64,19 @@ body {
 }
 
 .card-body a:hover {
-  background-color: #e6b800;
+  background-color: #ffa733;
   color: #fff;
 }
 
 /* Sección de Información General */
 .card-header {
   background-color: #f7f7f7;
-  border-bottom: 2px solid #ffcc00; /* Límite amarillo */
+  border-bottom: 2px solid #ffa733; /* Límite amarillo */
   padding: 20px 0;
 }
 
 .card-header i {
-  color: #ffcc00; /* Amarillo UNEMI */
+  color: #ffa733; /* Amarillo UNEMI */
 }
 
 /* Diseño responsivo para pantallas pequeñas */
