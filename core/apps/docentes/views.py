@@ -2,16 +2,12 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .forms import DocenteForm
 from .models import Docente
 
-# Vista para crear un nuevo docente
+# Funcion crear un nuevo docente
 def crear_docente(request):
     if request.method == "POST":
-        form = DocenteForm(request.POST, request.FILES)  # Asegúrate de que se pasan los archivos
-
+        form = DocenteForm(request.POST, request.FILES)
         if form.is_valid():
-            # Si el formulario es válido, guardamos el docente
             docente = form.save()
-
-            # Verifica si la imagen fue cargada correctamente
             if docente.imagen:
                 print(f"Imagen cargada correctamente: {docente.imagen.name}")
             else:
@@ -20,23 +16,16 @@ def crear_docente(request):
             return redirect("docente:listar_docentes")
     else:
         form = DocenteForm()
-
     return render(request, "crear_docente.html", {"form": form})
 
-# Vista para listar todos los docentes
+# Funcion listar todos los docentes
 def listar_docentes(request):
-    # Recupera todos los docentes de la base de datos
     docentes = Docente.objects.all()
-
-    # Renderiza la plantilla de la lista de docentes, pasando los docentes al contexto
     return render(request, "listar_docentes.html", {"docentes": docentes})
 
-
-# Vista para actualizar un docente
-# Vista para actualizar un docente
+# Funcion actualizar docentes
 def actualizar_docente(request, pk):
     docente = get_object_or_404(Docente, pk=pk)
-
     if request.method == "POST":
         form = DocenteForm(request.POST, request.FILES, instance=docente)
         if form.is_valid():
@@ -44,22 +33,14 @@ def actualizar_docente(request, pk):
             return redirect("docente:listar_docentes")
     else:
         form = DocenteForm(instance=docente)
-
     return render(request, "actualizar_docente.html", {"form": form, "docente": docente})
 
-# Vista para eliminar un docente
+# Funcion eliminar docentes
 def eliminar_docente(request, pk):
-    # Obtiene el docente con el ID proporcionado
     docente = get_object_or_404(Docente, pk=pk)
-
-    # Si la solicitud es POST, se confirma la eliminación
     if request.method == "POST":
-        # Elimina el docente de la base de datos
         docente.delete()
-        # Redirige a la lista de docentes después de eliminar
         return redirect(
             "docente:listar_docentes"
-        )  # Reemplazar con el nombre correcto de la vista
-
-    # Si la solicitud es GET, muestra la confirmación de eliminación
+        )
     return render(request, "eliminar_docente.html", {"docente": docente})
