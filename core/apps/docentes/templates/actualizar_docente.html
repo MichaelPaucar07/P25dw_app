@@ -1,40 +1,69 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}Actualizar Docente{% endblock %}
 
 {% block content %}
-<div class="custom-modal-overlay">
-  <div class="custom-modal-window">
-    <button class="custom-close-btn" onclick="window.location.href='{% url 'docente:listar_docentes' %}'">&times;</button>
-    <h2 class="custom-modal-title">
-      <i class="fa fa-user-edit me-2"></i> Actualizar Datos del Docente
+<div class="container my-4">
+    <h2 class="text-center mb-4" style="margin-top:120px; margin-bottom:20px;">
+        <i class="fa fa-user-edit me-2"></i> Actualizar Datos del Docente
     </h2>
 
-    <div class="custom-modal-content">
-      <!-- Columna izquierda -->
-      <div class="custom-form-column">
-        <form method="POST" enctype="multipart/form-data" id="customDocenteForm">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <div class="text-center mt-3">
-            <button type="submit" class="custom-btn-save">
-              <i class="fa fa-save me-1"></i> Actualizar Docente
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Columna derecha: imagen actual -->
-      <div class="custom-preview-column">
-        <div class="custom-image-preview-container">
-          <img id="customImagePreview" 
-               src="{% if docente.imagen %}{{ docente.imagen.url }}{% else %}{% static 'images/placeholder.png' %}{% endif %}" 
-               alt="Previsualización" />
-          <p class="preview-text">Imagen actual del docente</p>
+    <div class="actualizar-docente-page bg-white p-4 rounded">
+        <!-- Imagen actual -->
+        <div class="text-center mb-4">
+            <img id="customImagePreview" class="docente-img-preview"
+                 src="{% if docente.imagen %}{{ docente.imagen.url }}{% else %}{% static 'images/placeholder.png' %}{% endif %}"
+                 alt="Imagen actual del docente">
+            <p class="text-muted mt-2"><i class="fa fa-camera me-2"></i> Imagen actual</p>
         </div>
-      </div>
+        <form method="POST" enctype="multipart/form-data" id="updateDocenteForm">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label class="form-label"><i class="fa fa-user me-2"></i> Nombre</label>
+                {{ form.nombre }}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label"><i class="fa fa-user-tag me-2"></i> Apellido</label>
+                {{ form.apellido }}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label"><i class="fa fa-envelope me-2"></i> Correo</label>
+                {{ form.correo }}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label"><i class="fa fa-id-card me-2"></i> Cédula</label>
+                {{ form.cedula }}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label"><i class="fa fa-tint me-2"></i> Tipo de Sangre</label>
+                {{ form.tipo_sangre }}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label"><i class="fa fa-map-marker-alt me-2"></i> Dirección</label>
+                {{ form.direccion }}
+            </div>
+            
+            <div class="mb-4">
+                <label class="form-label"><i class="fa fa-image me-2"></i> Nueva Imagen</label>
+                {{ form.imagen }}
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4 me-2">
+                    <i class="fa fa-save me-2"></i> Actualizar
+                </button>
+                <a href="{% url 'docente:listar_docentes' %}" class="btn btn-outline-secondary btn-lg rounded-pill px-4">
+                    <i class="fa fa-times me-2"></i> Cancelar
+                </a>
+            </div>
+        </form>
     </div>
-  </div>
 </div>
 
 <script>

@@ -29,3 +29,35 @@ form input, form select, form textarea {
 .btn-success:hover {
     background-color: #218838;
 }
+
+.actualizar-docente-page {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.docente-img-preview {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
