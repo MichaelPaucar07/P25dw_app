@@ -4,26 +4,27 @@
 {% block title %}Eliminar Materia{% endblock %}
 
 {% block content %}
-<div class="custom-modal-overlay">
-  <div class="custom-modal-window">
-    <button class="custom-close-btn" onclick="window.location.href='{% url 'materia:listar_materias' %}'">&times;</button>
-    <h2 class="custom-modal-title">
-      <i class="fa fa-trash-alt me-2"></i> Eliminar Materia
-    </h2>
-    <div class="custom-modal-content" style="flex-direction: column; text-align: center;">
-      <p style="font-size: 18px; margin-bottom: 20px;">
-        ¿Estás seguro de que deseas eliminar la materia <strong>{{ materia.nombre }}</strong>?
-      </p>
-      <form method="POST" style="display: flex; justify-content: center; gap: 15px;">
-        {% csrf_token %}
-        <button type="submit" class="custom-btn-delete">
-          <i class="fa fa-trash me-1"></i> Eliminar
-        </button>
-        <a href="{% url 'materia:listar_materias' %}" class="custom-btn-cancel">
-          <i class="fa fa-times me-1"></i> Cancelar
+<div class="container eliminar-docente-wrapper" style="margin-top:130px; margin-bottom:120px;">
+    <div class="eliminar-docente-page bg-white p-4 rounded text-center shadow-lg">
+        <div class="mb-4">
+            <i class="fa fa-trash-alt" style="font-size:60px; color:#dc3545;"></i>
+        </div>
+        <h2 class="mb-4">
+            ¿Estás seguro de eliminar la materia <strong>{{ materia.nombre }}</strong>?
+        </h2>
+        <div class="mb-4">
+            <img src="{% if materia.imagen %}{{ materia.imagen.url }}{% else %}{% static 'images/placeholder2.png' %}{% endif %}" 
+                 alt="Imagen de la materia" class="docente-img-preview">
+        </div>
+        <form method="POST" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-lg rounded-pill px-4 me-2">
+                <i class="fa fa-trash me-2"></i> Eliminar
+            </button>
+        </form>
+        <a href="{% url 'materia:listar_materias' %}" class="btn btn-secondary btn-lg rounded-pill px-4">
+            <i class="fa fa-times me-2"></i> Cancelar
         </a>
-      </form>
     </div>
-  </div>
 </div>
 {% endblock %}
