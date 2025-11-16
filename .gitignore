@@ -1,0 +1,9 @@
+# Ignorar el directorio del entorno virtual
+venv/
+
+# Ignorar archivos de caché generados por el entorno virtual
+*.pyc
+__pycache__/
+
+#Ingorar migracions
+migrations/
