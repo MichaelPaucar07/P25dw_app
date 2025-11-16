@@ -1,78 +1,60 @@
-/* Footer principal */
-.custom-footer {
-  background-color: #042434;
-  color: #fff;
-  margin-top: auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
+.footer-container {
+    background-color: #1d1d1d;
+    color: #fff;
+    padding: 20px 10px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* Títulos */
-.custom-footer-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 15px;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.custom-footer-title i {
-  color: #ff7f00; /* Íconos en naranja */
-  margin-right: 8px;
+.footer-logo {
+    height: 45px;
+    width: auto;
+    margin-bottom: 15px;
 }
 
-/* Texto */
-.custom-footer-text {
-  font-size: 0.9rem;
-  color: #ccc;
+.footer-text {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 15px;
 }
 
-.custom-footer-text a {
-  color: #ccc;
-  text-decoration: none;
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.custom-footer-text a:hover {
-  color: #ff7f00;
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-/* Íconos sociales */
-.custom-footer-icon {
-  font-size: 1.8rem;
-  color: #ff7f00;
-  transition: color 0.3s ease, transform 0.3s ease;
+.footer-links a:hover {
+    color: #0078D4;
 }
 
-.custom-footer-icon:hover {
-  color: #ffa733;
-  transform: scale(1.2);
+.divider {
+    width: 1px;
+    height: 16px;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Separador */
-.custom-footer-divider {
-  border-color: #444;
-  margin: 20px 0;
-}
+@media (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-/* Sticky footer */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-}
-
-/* Responsive */
-@media (max-width: 767px) {
-  .custom-footer-title {
-    font-size: 1rem;
-  }
-  .custom-footer-text {
-    font-size: 0.8rem;
-  }
-  .custom-footer-icon {
-    font-size: 1.5rem;
-  }
+    .divider {
+        display: none;
+    }
 }
