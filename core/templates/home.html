@@ -1,105 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Bienvenido al Sitio de Oferta de Cursos{% endblock %}
+{% block title %}Oferta de Cursos{% endblock %}
 
 {% block content %}
-  <!-- Sección de Estudiantes -->
-  <div class="container my-5">
-    <h2 class="text-center mb-4">Conoce a Nuestros Estudiantes</h2>
-    <div class="row">
-      <!-- Estudiante 1 -->
-      <div class="col-md-3 mb-4">
-        <div class="card student-card">
-          <img src="{% static 'images/gjbc.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
-          <div class="card-body">
-            <h5 class="card-title">Gregory Jacinto Barco Cevallos</h5>
-            <p class="card-text">Nivel: 6</p>
-          </div>
+<div class="cards-container">
+    <div class="students-row">
+        <div class="student-card">
+            <img src="{% static 'images/students/e1.jpg' %}" alt="DARIO BARRENO" class="student-image">
+            <h5>DARIO BARRENO</h5>
+            <p>Nivel: Sexto Semestre</p>
         </div>
-      </div>
-
-      <!-- Estudiante 2 -->
-      <div class="col-md-3 mb-4">
-        <div class="card student-card">
-          <img src="{% static 'images/jgmn.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
-          <div class="card-body">
-            <h5 class="card-title">Jazmín Guadalupe Moreta Nugra</h5>
-            <p class="card-text">Nivel: 6</p>
-          </div>
+        <div class="student-card">
+            <img src="{% static 'images/students/e2.jpg' %}" alt="KIARA BRAVO" class="student-image">
+            <h5>KIARA BRAVO</h5>
+            <p>Nivel: Sexto Semestre</p>
         </div>
-      </div>
-
-      <!-- Estudiante 3 -->
-      <div class="col-md-3 mb-4">
-        <div class="card student-card">
-          <img src="{% static 'images/njst.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
-          <div class="card-body">
-            <h5 class="card-title">Narcisa de Jesús Suquinagua Toalongo</h5>
-            <p class="card-text">Nivel: 6</p>
-          </div>
+        <div class="student-card">
+            <img src="{% static 'images/students/e3.jpg' %}" alt="JEFFERSON JIMENEZ" class="student-image">
+            <h5>JEFFERSON JIMENEZ</h5>
+            <p>Nivel: Sexto Semestre</p>
         </div>
-      </div>
-
-      <!-- Estudiante 4 -->
-      <div class="col-md-3 mb-4">
-        <div class="card student-card">
-          <img src="{% static 'images/jmvb.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
-          <div class="card-body">
-            <h5 class="card-title">Jostin Miguel Visaira Brito</h5>
-            <p class="card-text">Nivel: 6</p>
-          </div>
+        <div class="student-card">
+            <img src="{% static 'images/students/e4.jpg' %}" alt="JORGE PADILLA" class="student-image">
+            <h5>JORGE PADILLA</h5>
+            <p>Nivel: Sexto Semestre</p>
         </div>
-      </div>
-
-      <!-- Estudiante 5 -->
-      <div class="col-md-3 mb-4">
-        <div class="card student-card">
-          <img src="{% static 'images/mseb.jpg' %}" class="card-img-top student-image" alt="Imagen estudiante">
-          <div class="card-body">
-            <h5 class="card-title">Michael Stick Espinoza Baque</h5>
-            <p class="card-text">Nivel: 5</p>
-          </div>
+        <div class="student-card">
+            <img src="{% static 'images/students/e5.jpg' %}" alt="NESTOR QUITO" class="student-image">
+            <h5>NESTOR QUITO</h5>
+            <p>Nivel: Sexto Semestre</p>
         </div>
-      </div>
     </div>
-  </div> 
-
-  <!-- Sección de Información General -->
-  <h2 class="text-center mb-4">¡Descubre Más Sobre Nosotros!</h2>
-<div class="row">
-  <!-- Sección de Docentes -->
-  <div class="col-md-6 mb-4">
-    <div class="card">
-      <div class="card-header text-center">
-        <i class="fa fa-user fa-3x"></i>
+    <div class="info-row">
+      <div class="info-card docentes">
+          <img src="{% static 'images/icons/docentes-icon.png' %}" alt="Docentes" class="info-image">
+          <div class="overlay">
+              <h3>Conoce a Nuestros Docentes</h3>
+              <p>En UNEMI contamos con docentes de calidad y experiencia única, comprometidos con tu formación profesional.</p>
+              <a href="{% url 'docente:listar_docentes' %}" class="btn-link">Ver Docentes</a>
+          </div>
       </div>
-      <div class="card-body">
-        <h5 class="card-title text-center">Conoce a Nuestros Docentes</h5>
-        <p class="card-text text-center">¡Estudia con los mejores! Nuestros docentes son expertos en sus áreas, listos para guiarte hacia el éxito.</p>
-        <div class="text-center">
-          <a href="{% url 'docente:listar_docentes' %}" class="btn btn-primary btn-lg">Ver Docentes</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sección de Cursos -->
-  <div class="col-md-6 mb-4">
-    <div class="card">
-      <div class="card-header text-center">
-        <i class="fa fa-book-open fa-3x"></i>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title text-center">Explora Nuestros Cursos</h5>
-        <p class="card-text text-center">¡Amplía tus conocimientos con nosotros! Descubre nuestros cursos de alta calidad y encuentra el que más te apasione.</p>
-        <div class="text-center">
-          <a href="{% url 'materia:listar_materias' %}" class="btn btn-primary btn-lg">Ver Cursos</a>
-        </div>
+      <div class="info-card cursos">
+          <img src="{% static 'images/icons/cursos-icon.png' %}" alt="Cursos" class="info-image">
+          <div class="overlay">
+              <h3>Explora Nuestros Cursos</h3>
+              <p>Descubre una amplia oferta académica diseñada para potenciar tus conocimientos y habilidades.</p>
+              <a href="{% url 'materia:listar_materias' %}" class="btn-link">Ver Cursos</a>
+          </div>
       </div>
     </div>
   </div>
 </div>
-
-
 {% endblock %}
