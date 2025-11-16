@@ -1,92 +1,136 @@
-body {
-  font-family: 'Inter', 'Roboto', sans-serif;
-  background-color: #f4f6f8;
-}
-
-.container {
-  max-width: 1200px;
+.docentes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
 }
 
 .docente-card-horizontal {
+  display: flex;
+  background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .docente-card-horizontal:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: scale(1.02);
+}
+
+.docente-info {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.docente-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 120, 212, 0.85);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .docente-name {
-  background-color: #e66216;
-  color: #ffffff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 1.15rem;
-}
-
-.docente-image-horizontal {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-left: 1px solid #eee;
-}
-
-.action-icons .btn-icon {
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: #f1f3f5;
-  color: #333;
-  margin-left: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.action-icons .btn-icon:hover {
-  background-color: #e2e6ea;
-  transform: scale(1.1);
-}
-
-.btn-icon.edit i {
-  color: #007bff;
-}
-
-.btn-icon.delete i {
-  color: #e74c3c;
-}
-
-.blood-type {
-  background-color: #e74c3c;
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 6px;
+  font-size: 18px;
   font-weight: bold;
 }
 
-.btn-success {
-  background-color: #28a745;
-  border: none;
-  font-weight: 500;
+.docente-details p {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #333;
 }
 
-.btn-success:hover {
-  background-color: #218838;
+.docente-details a {
+  color: #0078D4;
+  text-decoration: none;
 }
 
-@media (max-width: 768px) {
-  .docente-card-horizontal .row {
+.docente-details a:hover {
+  text-decoration: underline;
+}
+
+.action-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  color: #0078D4;
+  border: 2px solid #0078D4;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-icon:hover {
+  background: #0078D4;
+  color: #fff;
+}
+
+.btn-icon.delete {
+  border-color: #d9534f;
+  color: #d9534f;
+}
+
+.btn-icon.delete:hover {
+  background: #d9534f;
+  color: #fff;
+}
+
+.docente-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+}
+
+.docente-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-add-docente {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #0078D4;
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-add-docente:hover {
+  background: #005fa3;
+}
+
+@media (max-width: 992px) {
+  .docentes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .docente-card-horizontal {
     flex-direction: column;
   }
-  .docente-image-horizontal {
-    height: 220px;
-    border-left: none;
-    border-top: 1px solid #eee;
+
+  .docente-image-container {
+    height: 200px;
   }
 }

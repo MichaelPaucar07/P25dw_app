@@ -18,33 +18,31 @@
 <body>
   <nav>
       <a href="{% url 'home' %}" class="navbar-brand">
-          <img src="static/images/icons/logo.png" alt="Logo" class="logo">
+          <img src="{% static 'images/icons/logo.png' %}" alt="Logo" class="logo">
           SITIO DE CURSOS
       </a>
       <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
-          <img src="static/images/icons/menu.png" alt="Menú" class="menu-icon">
+          <img src="{% static 'images/icons/menu.png' %}" alt="Menú" class="menu-icon">
       </div>
       <div class="nav-links">
           <a href="{% url 'home' %}">
-              <img src="static/images/icons/home.png" alt="Home" class="nav-icon"> Home
+              <img src="{% static 'images/icons/home.png' %}" alt="Home" class="nav-icon"> Home
           </a>
           <a href="{% url 'docente:listar_docentes' %}">
-              <img src="static/images/icons/user.png" alt="Docentes" class="nav-icon"> Docentes
+              <img src="{% static 'images/icons/user.png' %}" alt="Docentes" class="nav-icon"> Docentes
           </a>
           <a href="{% url 'materia:listar_materias' %}">
-              <img src="static/images/icons/book.png" alt="Cursos" class="nav-icon"> Cursos
+              <img src="{% static 'images/icons/book.png' %}" alt="Cursos" class="nav-icon"> Cursos
           </a>
       </div>
   </nav>
-
   <main class="container mt-4">
     {% block content %}
     {% endblock %}
   </main>
-
   <footer class="footer-container">
     <div class="footer-content">
-        <img src="static/images/icons/unemi-logo.png" alt="UNEMI Logo" class="footer-logo">
+        <img src="{% static 'images/icons/unemi-logo.png' %}" alt="UNEMI Logo" class="footer-logo">
         <p class="footer-text">© 2025 Universidad Estatal de Milagro. Todos los derechos reservados.</p>
         <div class="footer-links">
             <a href="https://www.unemi.edu.ec/" target="_blank">Página Oficial UNEMI</a>
@@ -54,8 +52,7 @@
             <a href="https://www.unemi.edu.ec/contacto/" target="_blank">Contacto</a>
         </div>
     </div>
-</footer>
-
+  </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

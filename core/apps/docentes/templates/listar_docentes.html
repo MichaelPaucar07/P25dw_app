@@ -1,40 +1,43 @@
 {% extends 'base.html' %}
 {% block title %}Lista de Docentes{% endblock %}
 {% block content %}
-<div class="container my-5">
+
+
+<div class="container" style="margin-top:120px; margin-bottom:20px;">
   <h2 class="text-center mb-4">Nuestro Personal</h2>
   <div class="text-end mb-4">
-    <a href="{% url 'docente:crear_docente' %}" class="btn btn-success">
+    <a href="{% url 'docente:crear_docente' %}" class="btn-add-docente">
       <i class="fas fa-plus"></i> Agregar Docente
     </a>
   </div>
-  <div class="row">
+
+  <div class="docentes-grid">
     {% for docente in docentes %}
-    <div class="col-md-6 mb-4">
-      <div class="card docente-card-horizontal">
-        <div class="row g-0">
-          <div class="col-8 p-3 d-flex flex-column justify-content-between">
-            <div class="d-flex justify-content-between align-items-start mb-3">
-              <span class="docente-name">{{ docente.nombre }} {{ docente.apellido }}</span>
-              <div class="action-icons">
-                <a href="{% url 'docente:actualizar_docente' docente.pk %}" class="btn-icon edit">
-                  <i class="fas fa-edit"></i>
-                </a>
-                <a href="{% url 'docente:eliminar_docente' docente.pk %}" class="btn-icon delete">
-                  <i class="fas fa-trash-alt"></i>
-                </a>
-              </div>
+    <div class="docente-card-horizontal">
+        <!-- Columna izquierda -->
+        <div class="docente-info">
+            <div class="docente-header">
+                <span class="docente-name">{{ docente.nombre }} {{ docente.apellido }}</span>
+                <div class="action-icons">
+                    <a href="{% url 'docente:actualizar_docente' docente.pk %}" class="btn-icon edit">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="{% url 'docente:eliminar_docente' docente.pk %}" class="btn-icon delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </div>
             </div>
-            <p><strong>Correo:</strong> <a href="mailto:{{ docente.correo }}">{{ docente.correo }}</a></p>
-            <p><strong>Cédula:</strong> {{ docente.cedula }}</p>
-            <p><strong>Tipo de sangre:</strong> <span class="blood-type">{{ docente.tipo_sangre }}</span></p>
-            <p><strong>Dirección:</strong> {{ docente.direccion }}</p>
-          </div>
-          <div class="col-4">
-            <img src="{{ docente.imagen.url }}" alt="Imagen del docente" class="docente-image-horizontal">
-          </div>
+            <div class="docente-details">
+                <p><strong>Correo:</strong> <a href="mailto:{{ docente.correo }}">{{ docente.correo }}</a></p>
+                <p><strong>Cédula:</strong> {{ docente.cedula }}</p>
+                <p><strong>Tipo de sangre:</strong> <span class="blood-type">{{ docente.tipo_sangre }}</span></p>
+                <p><strong>Dirección:</strong> {{ docente.direccion }}</p>
+            </div>
         </div>
-      </div>
+        <!-- Columna derecha -->
+        <div class="docente-image-container">
+            <img src="{{ docente.imagen.url }}" alt="Imagen del docente" class="docente-image">
+        </div>
     </div>
     {% endfor %}
   </div>
